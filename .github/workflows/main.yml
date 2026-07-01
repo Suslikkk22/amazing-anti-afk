@@ -4,15 +4,15 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up MSVC (x86)
       uses: ilammy/msvc-dev-cmd@v1
       with:
         arch: x86
     - name: Compile ASI
-      run: cl.exe /LD /MD /O2 /Fe:AmazingAntiAFK.asi main.cpp
+      run: cl.exe /LD /MD /O2 /Fe:AmazingAntiAFK.asi main.cpp user32.lib
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: AntiAFK-Plugin
         path: AmazingAntiAFK.asi
